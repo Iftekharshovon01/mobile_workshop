@@ -1,0 +1,110 @@
+[
+    {
+        "_id": "637f4a54b9cc72847283f80a",
+        "category_id": "1",
+        "isVerified": false,
+        "picture": "https://adminapi.applegadgetsbd.com/storage/media/large/3408-30421.jpg",
+        "original_price": 62,
+        "reseale_price": 35,
+        "name": "iPhone 13",
+        "saler_name": "Ida Mays",
+        "company": "Apple",
+        "location": "808 Pitkin Avenue, Mulino, Pennsylvania, 532"
+    },
+    {
+        "_id": "637f4a546c4ee17a74de1269",
+        "category_id": "1",
+        "isVerified": true,
+        "picture": "https://adminapi.applegadgetsbd.com/storage/media/large/Silver-1953.jpg",
+        "original_price": 52,
+        "reseale_price": 36,
+        "name": "iPhone 8",
+        "saler_name": "French Pena",
+        "company": "Apple",
+        "location": "926 Roebling Street, Forbestown, Arkansas, 3148"
+    },
+    {
+        "_id": "637f4a54a89591017db7be75",
+        "category_id": "1",
+        "isVerified": true,
+        "picture": "https://adminapi.applegadgetsbd.com/storage/media/large/4500-46591.jpg",
+        "original_price": 58,
+        "reseale_price": 25,
+        "name": "iPhone XS",
+        "saler_name": "Alicia Dorsey",
+        "company": "Apple",
+        "location": "875 Meadow Street, Herlong, Nevada, 4829"
+    },
+    {
+        "_id": "637f4a54b9cc72847283f80b",
+        "category_id": "2",
+        "isVerified": false,
+        "picture": "https://adminapi.applegadgetsbd.com/storage/media/large/5079-74679.jpg",
+        "original_price": 62,
+        "reseale_price": 35,
+        "name": "Galaxy A53 5G",
+        "saler_name": "Ida Mays",
+        "company": "Samsung",
+        "location": "808 Pitkin Avenue, Mulino, Pennsylvania, 532"
+    },
+    {
+        "_id": "637f4a546c4ee17a74de1261",
+        "category_id": "2",
+        "isVerified": true,
+        "picture": "https://adminapi.applegadgetsbd.com/storage/media/large/Galaxy-M33-5G-Blue-8320.jpg",
+        "original_price": 52,
+        "reseale_price": 36,
+        "name": "Galaxy M33 5G",
+        "saler_name": "French Pena",
+        "company": "Samsung",
+        "location": "926 Roebling Street, Forbestown, Arkansas, 3148"
+    },
+    {
+        "_id": "637f4a54a89591017db7be76",
+        "category_id": "2",
+        "isVerified": true,
+        "picture": "https://adminapi.applegadgetsbd.com/storage/media/large/5172-13109.jpg",
+        "original_price": 58,
+        "reseale_price": 25,
+        "name": "Galaxy A23 - Official",
+        "saler_name": "Alicia Dorsey",
+        "company": "Samsung",
+        "location": "875 Meadow Street, Herlong, Nevada, 4829"
+    },
+    {
+        "_id": "637f4a54b9cc72847283f80c",
+        "category_id": "3",
+        "isVerified": false,
+        "picture": "https://adminapi.applegadgetsbd.com/storage/media/large/2468-9990.jpg",
+        "original_price": 62,
+        "reseale_price": 35,
+        "name": "Redmi Note 10S",
+        "saler_name": "Ida Mays",
+        "company": "Xaiomi",
+        "location": "808 Pitkin Avenue, Mulino, Pennsylvania, 532"
+    },
+    {
+        "_id": "637f4a546c4ee17a74de1262",
+        "category_id": "3",
+        "isVerified": true,
+        "picture": "https://adminapi.applegadgetsbd.com/storage/media/large/Xiaomi-12-Lite-Black-9108.jpg",
+        "original_price": 52,
+        "reseale_price": 36,
+        "name": "Xiaomi 12 Lite",
+        "saler_name": "French Pena",
+        "company": "Xaiomi",
+        "location": "926 Roebling Street, Forbestown, Arkansas, 3148"
+    },
+    {
+        "_id": "637f4a54a89591017db7be77",
+        "category_id": "3",
+        "isVerified": true,
+        "picture": "https://adminapi.applegadgetsbd.com/storage/media/large/2675-93346.jpg",
+        "original_price": 58,
+        "reseale_price": 25,
+        "name": "Mi 11 Ultra 5G",
+        "saler_name": "Alicia Dorsey",
+        "company": "Xaiomi",
+        "location": "875 Meadow Street, Herlong, Nevada, 4829"
+    }
+]

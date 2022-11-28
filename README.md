@@ -19,6 +19,6 @@ In the project directory, you can run:
 
 ## Admin Credential
 
-adminEmail:nazmul@gmail.com
-adminPassword:321654
+# adminEmail:nazmul@gmail.com
+# adminPassword:321654
 

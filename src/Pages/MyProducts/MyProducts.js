@@ -37,33 +37,7 @@ const MyProducts = () => {
     return (
         <div>
             <h3 className='text-3xl font-semibold text-center'>My Products</h3>
-            <div className="overflow-x-auto my-7">
-                <table className="table w-full">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Product Name</th>
-                            <th>Price</th>
-                            <th>Action</th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            products.map((product, i) =>
-                                <tr key={product._id}>
-                                    <th>{i + 1}</th>
-                                    <td>{product.productName}</td>
-                                    <td>{product.price}</td>
-                                    <td><button onClick={() => handleDelete(product)} className='btn btn-sm btn-error'>delete</button></td>
-                                </tr>
-
-                            )
-                        }
-                    </tbody>
-
-                </table>
-            </div>
         </div>
     );
 };

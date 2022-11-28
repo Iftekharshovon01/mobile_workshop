@@ -82,34 +82,7 @@ const AddProducts = () => {
     const { register, handleSubmit } = useForm();
     return (
         <div className='my-5 '>
-            <form onSubmit={handleSubmit(handleAddProduct)} className=' grid grid-cols-1 '>
-                {/* <Header /> */}
-                <input className="input input-bordered input-secondary w-full my-5" {...register("ProductName")} placeholder="Product Name" />
-                <input type='number' className="input input-bordered input-secondary w-full my-5" {...register("phone")} placeholder="Phone" />
-                <input className="input input-bordered input-secondary w-full my-5" {...register("location")} placeholder="Location" />
-                <input className="input input-bordered input-secondary w-full my-5" {...register("price")} placeholder="Price" />
-                <input className="input input-bordered input-secondary w-full my-5" {...register("buyingdate")} placeholder="Year of purchase" />
-                <input className="input input-bordered input-secondary w-full my-5" {...register("seller")} placeholder="Seller'sname" />
-                <input className="input input-bordered input-secondary w-full my-5" {...register("originalprice")} placeholder="Original price" />
-                <input type='file' className="input input-bordered input-secondary w-full my-5" {...register("image")} placeholder="Product Name" />
 
-
-
-                <select className="input input-bordered input-secondary w-full my-5" {...register("condition", { required: true })}>
-                    <option >Excelent</option>
-                    <option >Good</option>
-                    <option >Bad</option>
-                </select>
-
-                <select className="input input-bordered input-secondary w-full my-5" {...register("company", { required: true })}>
-                    <option disabled selected >Select Category</option>
-                    {categories.map(category => <option value={category.company} key={category._id} >{category.company}</option>)}
-                </select>
-
-                {/* <p>{data}</p> */}
-                <textarea className="input input-bordered input-secondary w-full my-5"  {...register("details")} placeholder="Details" />
-                <input className='btn ' type="submit" />
-            </form>
         </div>
     );
 };

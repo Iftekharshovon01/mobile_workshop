@@ -29,24 +29,7 @@ const BookingModal = ({ modalProduct }) => {
             meetinglocation
         }
 
-        fetch('https://mobile-workshop-server.vercel.app/booking', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(booking)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.acknowledged) {
-                    toast.success("Booking is confirmed");
-                }
-                else {
-                    toast.error(data.message);
-                }
-            })
-        form.reset();
+
     }
 
     return (

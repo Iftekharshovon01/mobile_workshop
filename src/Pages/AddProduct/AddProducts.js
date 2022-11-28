@@ -36,7 +36,46 @@ const AddProducts = () => {
 
 
 
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imageData => {
+                // console.log(imageData);
+                if (imageData.success) {
+                    const product = {
+                        image: imageData.data.url,
+                        productName,
+                        condition,
+                        details,
+                        date,
+                        phone,
+                        seller,
+                        originalprice,
+                        location,
+                        buyingdate,
+                        company,
+                        resalePrice,
+                        advertised: 'false',
+                        email
 
+                    }
+                    fetch('https://mobile-workshop-server.vercel.app/products', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(product)
+
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data)
+                            navigate('/products')
+                        });
+                }
+            })
     };
 
 

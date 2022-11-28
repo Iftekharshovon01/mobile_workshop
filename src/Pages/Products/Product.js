@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Product = ({ product }) => {
-    const { image, productName, originalprice, date, seller, resalePrice } = product;
-    console.log(product);
+const Product = ({ product, setModalProduct }) => {
+    const { image, productName, originalprice, date, seller, resalePrice, email } = product;
+
+
     return (
         <div className=''>
             <div className="card card-side bg-base-100 shadow-xl">
@@ -13,12 +14,13 @@ const Product = ({ product }) => {
                     <p>Resale Price:{resalePrice}</p>
                     <p>Post Date:{date}</p>
                     <p>Seller Name:{seller}</p>
+                    <p>Seller eamil:{email}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Book Now</button>
+                        <label onClick={() => setModalProduct(product)} htmlFor="bookmodal" className="btn">Book Now</label>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

@@ -30,7 +30,7 @@ const Register = () => {
                     role,
                     email
                 }
-                fetch('http://localhost:5000/users', {
+                fetch('https://mobile-workshop-server.vercel.app/users', {
                     method: 'POST',
                     headers: { 'content-type': 'application/json' },
                     body: JSON.stringify(mbUser)

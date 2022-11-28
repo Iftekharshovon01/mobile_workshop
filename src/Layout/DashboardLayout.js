@@ -8,27 +8,21 @@ const DashboardLayout = () => {
 
 
     const { user } = useContext(AuthContext);
-    const [wUser, setwUser] = useState({});
+    // const [wUser, setwUser] = useState({});
 
-    // fetch(`http://localhost:5000/users/${user?.email}`)
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         setwUser(data)
-
-    //     })
 
     const [seller, setSeller] = useState(false);
     const [admin, setAdmin] = useState(false);
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users/seller/${user?.email}`)
+        fetch(`https://mobile-workshop-server.vercel.app/users/seller/${user?.email}`)
             .then(res => res.json())
             .then(data => setSeller(data.seller));
     }, [seller, user?.email])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users/admin/${user?.email}`)
+        fetch(`https://mobile-workshop-server.vercel.app/users/admin/${user?.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin));
     }, [admin, user?.email])

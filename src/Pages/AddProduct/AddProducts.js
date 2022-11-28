@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Context/Authprovider/Authprovider';
 
 const AddProducts = () => {
-
+    const { user, loading } = useContext(AuthContext);
     const imageKey = process.env.REACT_APP_image_apiKey;
     const [date, setDate] = useState(new Date());
     const [categories, setCategories] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch('http://localhost:5000/categories')
+        fetch('https://mobile-workshop-server.vercel.app/categories')
             .then(res => res.json())
             .then(data => setCategories(data));
     }, [categories])
@@ -21,7 +22,7 @@ const AddProducts = () => {
         formData.append('image', image);
         const url = `https://api.imgbb.com/1/upload?key=${imageKey}`
 
-
+        const email = user.email;
         const productName = data.ProductName;
         const condition = data.condition;
         const details = data.details;
@@ -56,10 +57,11 @@ const AddProducts = () => {
                         buyingdate,
                         company,
                         resalePrice,
-                        advertised: 'false'
+                        advertised: 'false',
+                        email
 
                     }
-                    fetch('http://localhost:5000/products', {
+                    fetch('https://mobile-workshop-server.vercel.app/products', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
@@ -70,9 +72,8 @@ const AddProducts = () => {
                         .then(res => res.json())
                         .then(data => {
                             console.log(data)
-                            navigate('/dashboard/myProduct')
+                            navigate('/products')
                         });
-                    formData.reset();
                 }
             })
     };

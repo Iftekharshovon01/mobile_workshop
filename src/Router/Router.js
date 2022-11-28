@@ -8,7 +8,6 @@ import Blog from "../Pages/Blog/Blog";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
-import MyOrders from "../Pages/MyOrders/MyOrders";
 import MyProducts from "../Pages/MyProducts/MyProducts";
 import Products from "../Pages/Products/Products";
 import Register from "../Pages/Register/Register";
@@ -23,17 +22,17 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/categories')
+                loader: () => fetch('https://mobile-workshop-server.vercel.app/categories')
             },
             {
                 path: '/category/:company',
                 element: <PrivateRoute><Products></Products></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.company}`)
+                loader: ({ params }) => fetch(`https://mobile-workshop-server.vercel.app/products/${params.company}`)
             },
             {
                 path: '/products',
                 element: <Products></Products>,
-                loader: () => fetch(`http://localhost:5000/products`)
+                loader: () => fetch(`https://mobile-workshop-server.vercel.app/products`)
             }
             ,
             {

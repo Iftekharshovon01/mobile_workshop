@@ -15,68 +15,7 @@ const AddProducts = () => {
             .then(data => setCategories(data));
     }, [categories])
 
-    const handleAddProduct = data => {
 
-        const image = data.image[0];
-        const formData = new FormData();
-        formData.append('image', image);
-        const url = `https://api.imgbb.com/1/upload?key=${imageKey}`
-
-        const email = user.email;
-        const productName = data.ProductName;
-        const condition = data.condition;
-        const details = data.details;
-        const phone = data.phone;
-        const seller = data.seller;
-        const originalprice = data.originalprice;
-        const resalePrice = data.resalePrice;
-        const location = data.location;
-        const buyingdate = data.buyingdate;
-        const company = data.company;
-
-
-
-        fetch(url, {
-            method: 'POST',
-            body: formData
-        })
-            .then(res => res.json())
-            .then(imageData => {
-                // console.log(imageData);
-                if (imageData.success) {
-                    const product = {
-                        image: imageData.data.url,
-                        productName,
-                        condition,
-                        details,
-                        date,
-                        phone,
-                        seller,
-                        originalprice,
-                        location,
-                        buyingdate,
-                        company,
-                        resalePrice,
-                        advertised: 'false',
-                        email
-
-                    }
-                    fetch('https://mobile-workshop-server.vercel.app/products', {
-                        method: 'POST',
-                        headers: {
-                            'content-type': 'application/json'
-                        },
-                        body: JSON.stringify(product)
-
-                    })
-                        .then(res => res.json())
-                        .then(data => {
-                            console.log(data)
-                            navigate('/products')
-                        });
-                }
-            })
-    };
 
 
     const { register, handleSubmit } = useForm();

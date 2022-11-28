@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 const AddProducts = () => {
 
     const imageKey = process.env.REACT_APP_image_apiKey;
     const [date, setDate] = useState(new Date());
     const [categories, setCategories] = useState([]);
+    const navigate = useNavigate();
     useEffect(() => {
         fetch('http://localhost:5000/categories')
             .then(res => res.json())
@@ -26,9 +28,10 @@ const AddProducts = () => {
         const phone = data.phone;
         const seller = data.seller;
         const originalprice = data.originalprice;
+        const resalePrice = data.resalePrice;
         const location = data.location;
         const buyingdate = data.buyingdate;
-        const category = data.category;
+        const company = data.company;
 
 
 
@@ -51,7 +54,8 @@ const AddProducts = () => {
                         originalprice,
                         location,
                         buyingdate,
-                        category,
+                        company,
+                        resalePrice,
                         advertised: 'false'
 
                     }
@@ -64,10 +68,13 @@ const AddProducts = () => {
 
                     })
                         .then(res => res.json())
-                        .then(data => console.log(data));
+                        .then(data => {
+                            console.log(data)
+                            navigate('/dashboard/myProduct')
+                        });
+                    formData.reset();
                 }
             })
-        data.reset();
     };
 
 
@@ -93,16 +100,16 @@ const AddProducts = () => {
                     <option >Bad</option>
                 </select>
 
-                <select className="input input-bordered input-secondary w-full my-5" {...register("category", { required: true })}>
+                <select className="input input-bordered input-secondary w-full my-5" {...register("company", { required: true })}>
                     <option disabled selected >Select Category</option>
-                    {categories.map(category => <option value={category._id} key={category._id} >{category.company}</option>)}
+                    {categories.map(category => <option value={category.company} key={category._id} >{category.company}</option>)}
                 </select>
 
                 {/* <p>{data}</p> */}
                 <textarea className="input input-bordered input-secondary w-full my-5"  {...register("details")} placeholder="Details" />
                 <input className='btn ' type="submit" />
             </form>
-        </div  >
+        </div>
     );
 };
 

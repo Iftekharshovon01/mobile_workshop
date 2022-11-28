@@ -1,9 +1,39 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { AuthContext } from '../Context/Authprovider/Authprovider';
 import Footer from '../Pages/Footer/Footer';
 import Header from '../Pages/Header/Header';
 
 const DashboardLayout = () => {
+
+
+    const { user } = useContext(AuthContext);
+    const [wUser, setwUser] = useState({});
+
+    // fetch(`http://localhost:5000/users/${user?.email}`)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         setwUser(data)
+
+    //     })
+
+    const [seller, setSeller] = useState(false);
+    const [admin, setAdmin] = useState(false);
+
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/seller/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setSeller(data.seller));
+    }, [seller, user?.email])
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/admin/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin));
+    }, [admin, user?.email])
+
+
     return (
         <div>
             <Header></Header>
@@ -17,10 +47,25 @@ const DashboardLayout = () => {
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+                        <li><Link to={'/dashboard/myOrders'}>My Orders</Link></li>
+                        <>{admin &&
+                            <>
 
-                        <li><Link to={'/'}>My Orders</Link></li>
-                        <li><Link to={'/dashboard/addProduct'}>Add Product</Link></li>
-                        <li><Link>My Product</Link></li>
+                                <li><Link to={'/dashboard/allBuyers'}>All Buyers</Link></li>
+                                <li><Link to={'/dashboard/allSellers'}>All Selles</Link></li>
+                                <li><Link to={'/dashboard/reportedItems'}>Reproted Items</Link></li>
+                            </>
+                        }
+                        </>
+                        <>{seller &&
+                            <>
+
+
+                                <li><Link to={'/dashboard/addProduct'}>Add Product</Link></li>
+                                <li><Link to={'/dashboard/myProducts'}>My Product</Link></li>
+                            </>
+                        }
+                        </>
                     </ul>
 
                 </div>

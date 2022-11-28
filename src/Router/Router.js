@@ -2,12 +2,17 @@ import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
 import AddProducts from "../Pages/AddProduct/AddProducts";
+import AllBuyers from "../Pages/AllBuyers/AllBuyers";
+import AllSellers from "../Pages/AllSellers/AllSellers";
 import Blog from "../Pages/Blog/Blog";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
+import MyOrders from "../Pages/MyOrders/MyOrders";
+import MyProducts from "../Pages/MyProducts/MyProducts";
 import Products from "../Pages/Products/Products";
 import Register from "../Pages/Register/Register";
+import ReportedItems from "../Pages/ReportedItems/ReportedItems";
 import PrivateRoute from "./Privateroute";
 
 const router = createBrowserRouter([
@@ -21,14 +26,14 @@ const router = createBrowserRouter([
                 loader: () => fetch('http://localhost:5000/categories')
             },
             {
-                path: '/category',
+                path: '/category/:company',
                 element: <PrivateRoute><Products></Products></PrivateRoute>,
-                loader: () => fetch(`phone.json`)
+                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.company}`)
             },
             {
                 path: '/products',
                 element: <Products></Products>,
-                loader: () => fetch(`phone.json`)
+                loader: () => fetch(`http://localhost:5000/products`)
             }
             ,
             {
@@ -61,6 +66,26 @@ const router = createBrowserRouter([
                 path: '/dashboard/addProduct',
                 element: <AddProducts></AddProducts>
             },
+            {
+                path: '/dashboard/myProducts',
+                element: <MyProducts></MyProducts>
+            },
+            {
+                path: '/dashboard/myOrders',
+                element: <Dashboard></Dashboard>
+            },
+            {
+                path: '/dashboard/allSellers',
+                element: <AllSellers></AllSellers>
+            },
+            {
+                path: '/dashboard/allBuyers',
+                element: <AllBuyers></AllBuyers>
+            },
+            {
+                path: '/dashboard/reportedItems',
+                element: <ReportedItems></ReportedItems>
+            }
 
         ]
     }

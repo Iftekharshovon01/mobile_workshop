@@ -1,9 +1,10 @@
 import React from 'react';
+import MyOrders from '../MyOrders/MyOrders';
 
 const Dashboard = () => {
     return (
         <div className=' bg-red-600 my-0'>
-            <h2>This is Dashboard!</h2>
+            <MyOrders></MyOrders>
         </div>
     );
 };
